@@ -18,6 +18,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EmployceController</servlet-name>
-        <url-pattern>/EmployceController</url-pattern>
+        <url-pattern>/Emp</url-pattern>
     </servlet-mapping>
 </web-app>

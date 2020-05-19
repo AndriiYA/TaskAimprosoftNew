@@ -1,7 +1,6 @@
 package controllers;
 
 import Dao.EmployceDao;
-import model.Employce;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,12 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class EmploeceController extends HttpServlet {
+
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/listEmployee.jsp";
     private static String LIST_EMPLOYEE = "/listEmployee.jsp";
     private EmployceDao dao;
 
-    public EmploeceController(){
+    public EmploeceController() {
         super();
         dao = new EmployceDao();
     }
@@ -26,7 +26,7 @@ public class EmploeceController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+/*
         String forward="";
         String action = request.getParameter("action");
 
@@ -46,10 +46,15 @@ public class EmploeceController extends HttpServlet {
         } else {
             forward = INSERT_OR_EDIT;
         }
+*/
+String action = request.getParameter("action");
+        if (action == null) {
+            request.setAttribute("employce", dao.getAllEmployce());
+        }
 
-        RequestDispatcher view = request.getRequestDispatcher(forward);
+        RequestDispatcher view = request.getRequestDispatcher(LIST_EMPLOYEE);
         view.forward(request, response);
+
     }
 
 }
-
